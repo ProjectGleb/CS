@@ -71,7 +71,6 @@
         if (!isRecording) {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             mediaRecorder = new MediaRecorder(stream);
-            console.log('MIME Type:', mediaRecorder.mimeType); // Log the MIME type here
             mediaRecorder.ondataavailable = handleDataAvailable;
             mediaRecorder.start();
             console.log('Recording started');
@@ -84,7 +83,6 @@
         
         isRecording = !isRecording;
     }
-
 
     function handleDataAvailable(event) {
         chunks.push(event.data);

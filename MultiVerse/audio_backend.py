@@ -9,6 +9,15 @@ import librosa
 import librosa.display
 import soundfile as sf
 
+import subprocess
+
+def convert_audio(input_path, output_path):
+    cmd = ['ffmpeg', '-i', input_path, output_path]
+    subprocess.run(cmd, check=True)
+
+# Example usage
+convert_audio('./uploads/recording.wav', './uploads/recording_converted.wav')
+
 
 
 
@@ -41,7 +50,7 @@ async def upload_audio(audio: UploadFile = File(...)):
 
 
 
-    audio_data, sample_rate = librosa.load('./uploads/recording.wav', sr=None)
+    audio_data, sample_rate = librosa.load(file_path, sr=None)
     pcm_audio_data = (audio_data * 32767).astype('int16')
     sf.write('./uploads/output.wav', pcm_audio_data, sample_rate)
 
