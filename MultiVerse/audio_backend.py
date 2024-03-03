@@ -11,6 +11,7 @@ import soundfile as sf
 
 import subprocess
 
+
 def convert_audio(input_path, output_path):
     cmd = ['ffmpeg', '-i', input_path, output_path]
     subprocess.run(cmd, check=True)
