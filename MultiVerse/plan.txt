@@ -1,0 +1,7 @@
+Video feeding from the html webcam
+
+Video Streaming back onto the website
+
+
+Stop the fast api Streaming: ''' ^C '''
+Get it back on track: '''uvicorn speech_api:app --reload'''
